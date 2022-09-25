@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'logo.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        #link {
+        color: white;
+
+    }
+    #link:hover {
+        font-weight: 500;
+    }
+    body {
+        background-image: url('{% static "space.jpg" %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #navbar {
+        margin-top: 0.8%;
+    }
+    #contact-link {
+        font-weight: 500;
+    }
+    #image {
+        margin: 1cm;
+    }
+    #contact-form {
+        display: grid;
+        margin: auto;
+        margin-top: 3%;
+    }
+    #send {
+        background-color: black;
+        color: white;
+        border-radius: 20px;
+        width: 3cm;
+        border: none;
+        margin: auto;
+        display: grid;
+        text-align: center;
+    }
+    #subject {
+        margin-bottom: 3%;
+        border-radius: 20px;
+    }
+    #heading {
+        color: white;
+        text-align: center;
+        margin-bottom: 1.3cm;
+    }
+    #inputs {
+        width: 38%;
+        margin: auto;
+        display: grid;
+    }
+    #name {
+        border-radius: 26px;
+        margin-bottom: 0.5cm;
+    }
+    #email {
+        border-radius: 26px;
+        margin-bottom: 0.65cm;
+    }
+    #subject {
+        border-radius: 26px;
+    }
+    .insta-icons {
+        position: absolute;
+        right: 0px;
+        padding: 10px;
+    }
+    #insta {
+        width: 1cm;
+        height: 1cm;
+    }
+    #github {
+        width: 1cm;
+        height: 1cm;
+    }
+    #gith {
+        float: right;
+        margin-right: 0.2cm;
+        color: white;
+        text-decoration: none;
+        font-weight: 350;
+    }
+    #instag {
+        float: right;
+        color: white;
+        text-decoration: none;
+        font-weight: 350;
+        margin-left: 0.35cm;
+    }
+    #instag:hover {
+        font-weight: bold;
+    }
+    #gith:hover {
+        font-weight: bold;
+    }
+    #social-media {
+        margin-top: -0.8cm;
+        margin-right: 1cm;
+    }
+    </style>
+    <nav>
+        <div id="navbar">
+            <ul id="nav-items" class="nav justify-content-center">
+                <li class="nav-item">
+                  <a id="link" class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li  class="nav-item">
+                  <a id="link" class="nav-link" href="/projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a id="link" class="nav-link" href="/blog">Blog</a>
+                </li>
+                <li id="contact-link" class="nav-item">
+                    <a id="link" class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>      
+    </nav> 
+
+    {% block content %}
+        <form id="contact-form" action="" method="POST"> {% csrf_token %}
+            <h2 id="heading">Get In Touch</h2>
+            <div id="inputs">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" name="name">
+                    <label for="name">Full Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                    <label for="email">Email Adress</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Subject" id="subject" style="height: 200px" name="subject"></textarea>
+                    <label for="subject">Subject</label>
+                </div>
+            </div>
+            <button onclick="showMessage()" type="submit" id="send">Send</button>
+        </form>
+    {% endblock content %}
+
+    <div id="social-media">
+        <a id="instag" href="https://www.instagram.com/yusif_shoukeir" target="blank">
+            Instagram
+        </a>
+        <a id="gith" href="https://github.com/Yousef-Shoukeir" target="blank">
+            Github
+        </a>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert('Thanks! I recived your message.');
+        }
+    </script>
+</body>
+</html>    
