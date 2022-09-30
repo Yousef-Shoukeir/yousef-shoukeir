@@ -25,6 +25,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', blog, name='blog'),
     path('', include('main.urls'))
-    
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
