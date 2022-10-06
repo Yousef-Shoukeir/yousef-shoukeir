@@ -13,7 +13,7 @@ def contact(request):
         email = request.POST['email']
         subject = request.POST['subject']
         send_mail(
-            name,
+            name + " - " + email,
             subject,
             email,
             ['jos51ysf@gmail.com'],
